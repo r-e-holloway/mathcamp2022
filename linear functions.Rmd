@@ -1,0 +1,54 @@
+---
+title: "linear functions"
+author: "Ruth Holloway"
+date: "2022-08-04"
+output: pdf_document
+---
+
+---
+title: "linear functions practice"
+author: "Ruth Holloway"
+date: "2022-08-04"
+output: pdf_document
+---
+
+```{r}
+IQ <- c(148, 100, 75, 89, 123, 66, 96, 112, 85, 104) #create a vector holding the values of x, our outcome variable (IQ of individual in question)
+IQ
+
+mother <- c(4, 2, 3, 3, 1, 2, 3, 4, 1, 2) #create a vector holding the values of y, our explanatory variable (mother's level of educational attainment)
+mother
+
+read <- c(1, 1, 0, 1, 0, 0, 1, 1, 1, 1) #create a vector holding the values of z, a second explanatory varibale that alters the effects of y on z
+read
+
+mcdata <- data.frame(IQ, mother, read) #make a data frame combining all of the vectors
+mcdata
+```
+
+```{r}
+#library(readxl)
+#mcdata <- read_excel("mcdata.xlsx")
+#View(mcdata)
+```
+
+
+```{r}
+model1 <- lm(IQ~mother, data=mcdata) #create a linear model describing the relationship between our explanatory and outcome variables
+model1
+
+model2 <- lm(IQ~mother+read+mother*read, data=mcdata) #create a linear model describing the relationship between our explanatory and outcome variables when a second explanatory variable is present
+model2
+```
+
+```{r}
+##your turn! make sure you notate each step.
+
+#Instructions
+#1. define a relationship of interest (eg pick an explanatory variable, an outcome variable, and third variable that you think has an effect on both the explanatory and the outcome variable)
+#2. create three vectors
+#3. merge them into a data frame
+#4. create a bivariate linear model
+#5. create a multivariate linear model with an interaction term
+#6. commit your file to github (and pull + push)
+```
